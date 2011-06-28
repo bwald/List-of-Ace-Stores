@@ -6,6 +6,11 @@ def printZips(ziplist):
 	for row in ziplist:
 		print row
 
+def findStoresByZip(ziplist):
+	
+
+
+
 def main(argv=None):
 	if argv is None:
 		argv = sys.argv
