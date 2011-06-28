@@ -1,10 +1,18 @@
 import csv
 
-zipReader = csv.reader(open('zips.txt', 'r'))
 
-zips = []
 
-for row in zipReader:
-	zips.add(row[1])
 
-print zips
+def 
+
+def main:
+
+	zipReader = csv.reader(open('zips.txt', 'r'))
+
+	zips = []
+
+	for row in zipReader:
+		zips.append(row[1]) 
+
+if __name__ == "__main__":
+	main()
