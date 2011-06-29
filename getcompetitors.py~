@@ -3,16 +3,34 @@ import csv, sys, getopt, os
 import sqlite3
 import mechanize
 
+class store:
+	def __init__(self, snum, sname, sadd1, sadd2, scity, sstate, zcode):
+		self.num = snum
+		self.name = sname
+		self.add1 = sadd1
+		self.add2 = sadd2
+		self.city = scity
+		self.state = sstate
+		self.zipcode = zcode
 
 def addStores(z, c, br):
 #	br.select_form(name = "frm")
 #	br["fldAddress"] = z
 	#for form in br.forms():
 	#	print form 
-	addToDatabase(c, "123 fake street")
+	#addToDatabase(c, "123 fake street")
+	estore = store(123, "test", "123 fake street", "building b", "springfield", "mass", 33313)
+	addToDatabase(c, estore)
 
-def addToDatabase(c, address):
-	#c.execute("insert into storelist values (123, 'test', '123 fake street', 'building b', 'springfield', 'mass', '31323')")
+def addToDatabase(c, examplestore):
+	#c.execute("insert into storelist values (?, ?, ?, ?, ?, ?, ?)", (examplestore.num, examplestore.name, examplestore.add1, examplestore.add2, examplestore.city, examplestore.state, examplestore.zipcode))
+	try:
+		#c.execute("insert into storelist values (123, 'test', '123 fake street', 'building b', 'springfield', 'mass', '31323')")
+		c.execute("insert into storelist values (?, ?, ?, ?, ?, ?, ?)", (examplestore.num, examplestore.name, examplestore.add1, examplestore.add2, examplestore.city, examplestore.state, examplestore.zipcode))
+		print "we created it?"
+	except:
+		print "the tuple already existed"
+
 	t = (123,)
 	c.execute('select state from storelist where num=?', t)
 
