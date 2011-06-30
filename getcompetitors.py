@@ -20,6 +20,8 @@ def addStores(z, c, br):
 	#	print form 
 	#addToDatabase(c, "123 fake street")
 	estore = store(123, "test", "123 fake street", "building b", "springfield", "mass", 33313)
+	print estore.num 
+	print estore.name
 	addToDatabase(c, estore)
 
 def addToDatabase(c, examplestore):
@@ -34,8 +36,10 @@ def addToDatabase(c, examplestore):
 	t = (123,)
 	c.execute('select state from storelist where num=?', t)
 
-	for row in c:
-		print row
+	print c.fetchone()
+
+	#for row in c:
+	#	print row
 
 def printZips(ziplist):
 	for row in ziplist:
