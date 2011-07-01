@@ -20,13 +20,16 @@ def addStores(z, c, br):
 	#	print form 
 	#addToDatabase(c, "123 fake street")
 	estore = store(123, "test", "123 fake street", "building b", "springfield", "mass", 33313)
+	estore2 = store(1234, "test", "123 fake street", "building b", "springfield", "something", 33313)
 	print estore.num 
 	print estore.name
 	addToDatabase(c, estore)
+	addToDatabase(c, estore2)
 
 def addToDatabase(c, examplestore):
 	#c.execute("insert into storelist values (?, ?, ?, ?, ?, ?, ?)", (examplestore.num, examplestore.name, examplestore.add1, examplestore.add2, examplestore.city, examplestore.state, examplestore.zipcode))
 	try:
+		numm = (examplestore.num,)
 		#c.execute("insert into storelist values (123, 'test', '123 fake street', 'building b', 'springfield', 'mass', '31323')")
 		c.execute("insert into storelist values (?, ?, ?, ?, ?, ?, ?)", (examplestore.num, examplestore.name, examplestore.add1, examplestore.add2, examplestore.city, examplestore.state, examplestore.zipcode))
 		print "we created it?"
